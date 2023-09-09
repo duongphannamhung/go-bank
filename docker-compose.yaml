@@ -4,8 +4,8 @@ services:
     image: postgres:13
     container_name: go_bank_db
     restart: unless-stopped
-    # env_file:
-    #   - .env
+    env_file:
+      - .env
     ports:
       - "127.0.0.1:5432:5432"
     volumes:
