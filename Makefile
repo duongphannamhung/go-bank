@@ -3,4 +3,13 @@ createdb:
 dropdb:
 	docker compose exec -it db dropdb go_bank
 
-.PHONY: createdb dropdb
+migrateup:
+	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/go_bank?sslmode=disable" -verbose up
+
+migratedown:
+	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/go_bank?sslmode=disable" -verbose down
+
+test:
+	go test -v -cover ./...
+
+.PHONY: createdb dropdb migrateup migratedown test
