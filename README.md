@@ -1,2 +1,2 @@
 # go-bank
-Backend Masterclass with Golang
+Learn some serious backend stack (Golang)
